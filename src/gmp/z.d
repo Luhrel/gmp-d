@@ -349,7 +349,9 @@ nothrow:
 		void selfdupIfAliased() scope pure nothrow @nogc @safe {
             pragma(inline, true);
 			if (_refCountCopies >= 1)
-				this = this.dup();
+            {
+                _z = dup._z;
+            }
 		}
         this(this) scope pure nothrow @nogc @safe
         {
